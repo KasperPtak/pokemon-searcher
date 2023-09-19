@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 // @'et i pathen betyder bare at den går til next.js appen's root
 import { ThemeProvider } from "@/components/theme-provider";
+import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,9 +28,11 @@ export default function RootLayout({
 				<ThemeProvider attribute="class" defaultTheme="dark">
 					<main className="flex min-h-screen flex-col items-center p-24">
 						<div className="z-10 w-full max-w-5xl items-center justify-between text-sm lg:flex">
-							<h2 className="text-2xl text-bold">
-								PokemonSearcher
-							</h2>
+							<Link href="/">
+								<h2 className="text-2xl text-bold">
+									PokemonSearcher
+								</h2>
+							</Link>
 						</div>
 						{children}
 					</main>

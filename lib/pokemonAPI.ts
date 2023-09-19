@@ -12,3 +12,8 @@ export async function getPokemonList() {
 
 
 // getPokemon -> få informationen fra en bestemt pokemon ud fra en string fx "Bulbasaur"
+export async function getPokemon(name: string) {
+    const response = await fetch(POKEMON_API + 'pokemon/' + name)
+    const data = await response.json();
+    return data;
+}

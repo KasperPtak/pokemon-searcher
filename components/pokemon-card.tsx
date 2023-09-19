@@ -15,7 +15,8 @@ export function PokemonCard({ name }: PokemonCardProps) {
 			key={name + "Card"}
 		>
 			<h2 className={`text-2xl font-semibold`}>
-                {name}
+				{/* charAt og slice, gør det samme som at bruge css uppercase fx P + ikachu  */}
+                {name.charAt(0).toUpperCase() + name.slice(1) }
             </h2>
 		</Link>
 	);

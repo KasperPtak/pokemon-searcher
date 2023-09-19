@@ -7,12 +7,21 @@ import { PokemonCard } from "./pokemon-card";
 // <PokemonGrid pokemonlist={data fra apikald her} />
 
 interface PokemonGridProps {
-    pokemonList: Pokemon[]
+    pokemonList: any;
     // pokemonlist kan sættes til any hvis fejl sker, igen :')
 }
 
 export function PokemonGrid({ pokemonList } : PokemonGridProps ) {
 	const [searchText, setSearchText] = useState("");
+
+	// funktion til at søge tekst igennem
+	const searchFilter = (pokemonList: any) => {
+		return pokemonList.filter(
+			(pokemon: any) => pokemon.name.toLowerCase().includes(searchText.toLowerCase())
+		)
+	}
+
+	const filteredPokemonList = searchFilter(pokemonList);
 
 	return (
 		<>
@@ -36,9 +45,9 @@ export function PokemonGrid({ pokemonList } : PokemonGridProps ) {
                 </h3>
 			</div>
             <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-4 lg:text-left ">
-			{pokemonList.map((pokemon : pokemon[]) => {
+			{filteredPokemonList.map((pokemon : any) => {
                 return (
-                    <PokemonCard name={pokemon.name} />
+                    <PokemonCard name={pokemon.name} key={pokemon.name + "Card"} />
                 )
             })}
 		</div>
