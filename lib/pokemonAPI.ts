@@ -17,3 +17,5 @@ export async function getPokemon(name: string) {
     const data = await response.json();
     return data;
 }
+
+lokijlkj
